@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<robot name="mechaprime" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find mechaprime_description)/urdf/mechaprime_base.xacro" />
+    <xacro:include filename="$(find mechaprime_description)/urdf/mechaprime_sensor.xacro" />
+    <xacro:include filename="$(find mechaprime_description)/urdf/mechaprime_gazebo.xacro" />
+    <xacro:include filename="$(find mechaprime_description)/urdf/mechaprime_ros2control.xacro" />
+</robot>
