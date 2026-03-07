@@ -1,1 +1,8 @@
-build/ install/ log/ .vscode/ **/models/ **/meshes/
+build/
+install/
+log/
+.vscode/
+*.zip
+*.tar.gz
+mechaprime_full.zip
+mechaprime_ws_full.tar.gz
