@@ -66,7 +66,6 @@
     </joint>
 
     <link name="camera_link_optical" />
-
     <joint name="camera_optical_joint" type="fixed">
         <parent link="camera_sensor_link"/>
         <child link="camera_link_optical"/>
