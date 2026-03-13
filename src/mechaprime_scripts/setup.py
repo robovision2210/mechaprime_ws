@@ -27,6 +27,8 @@ setup(
             'read_lidar = mechaprime_scripts.read_lidar:main',
             'read_imu = mechaprime_scripts.read_imu:main',
             'read_camera = mechaprime_scripts.read_camera:main',
-        ],
+            'detect_marker = mechaprime_scripts.detect_marker:main',
+            'maze_solver = mechaprime_scripts.maze_solver:main',
+            ],
     },
 )
