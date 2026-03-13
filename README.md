@@ -1,6 +1,8 @@
 # 🤖 MechaPrime — Autonomous Mobile Robot
 
-A ROS2-based differential drive robot simulated in Gazebo with full teleop control, twist_mux priority handling, and ros2_control integration.
+A ROS2-based differential drive robot simulated in Gazebo with full teleop control,
+twist_mux priority handling, ros2_control integration, and autonomous maze solving
+via QR code navigation.
 
 ---
 
@@ -12,6 +14,9 @@ A ROS2-based differential drive robot simulated in Gazebo with full teleop contr
 - Joystick and keyboard teleop support
 - Safety lock mechanism via `twist_mux`
 - Sensor scripts for Camera, IMU, and LiDAR
+- Autonomous maze solving with QR code commands
+- ArUco / QR marker detection node
+- Bringup package for full system launch
 
 ---
 
@@ -21,7 +26,8 @@ A ROS2-based differential drive robot simulated in Gazebo with full teleop contr
 |---------|-------------|
 | `mechaprime_description` | URDF, meshes, Gazebo config |
 | `mechaprime_controller` | Controllers, twist_mux, teleop config |
-| `mechaprime_scripts` | Sensor reading scripts (Camera, IMU, LiDAR) |
+| `mechaprime_scripts` | Sensor nodes, maze solver, marker detection |
+| `mechaprime_bringup` | Full system bringup launch |
 
 ---
 
@@ -33,11 +39,13 @@ A ROS2-based differential drive robot simulated in Gazebo with full teleop contr
     colcon build
     source install/setup.bash
 
-### 2. Launch Gazebo
+### 2. Launch Gazebo (includes controllers)
     ros2 launch mechaprime_description gazebo.launch.py
 
-### 3. Launch Controllers
-    ros2 launch mechaprime_controller controller.launch.py
+> ⚠️ Do NOT run controller.launch.py separately — controllers are auto-spawned by gazebo.launch.py
+
+### 3. Full System Bringup (Alternative)
+    ros2 launch mechaprime_bringup simulated_robot.launch.py
 
 ### 4. Launch Teleop and Twist Mux
     ros2 launch mechaprime_controller joystick.launch.py
@@ -54,6 +62,27 @@ A ROS2-based differential drive robot simulated in Gazebo with full teleop contr
 ### 8. Read LiDAR Data
     ros2 run mechaprime_scripts read_lidar
 
+### 9. Autonomous Maze Solver (QR Navigation)
+    ros2 run mechaprime_scripts maze_solver
+
+> Robot reads QR codes ("left", "right", "stop") and navigates autonomously using LiDAR + IMU
+
+### 10. Marker Detection
+    ros2 run mechaprime_scripts detect_marker
+
+---
+
+## 🧠 Autonomous Navigation — maze_solver
+
+| Topic | Type | Role |
+|-------|------|------|
+| `/camera/image_raw` | `sensor_msgs/Image` | QR code detection |
+| `/scan` | `sensor_msgs/LaserScan` | Obstacle detection |
+| `/imu/out` | `sensor_msgs/Imu` | Yaw-based turn control |
+| `/cmd_vel` | `geometry_msgs/Twist` | Velocity output |
+
+**QR Commands:** `left` → turn 90° left | `right` → turn 90° right | `stop` → halt
+
 ---
 
 ## 🛠️ Tech Stack
@@ -61,15 +90,16 @@ A ROS2-based differential drive robot simulated in Gazebo with full teleop contr
 | Tool | Version |
 |------|---------|
 | ROS2 | Humble |
-| Gazebo | Ignition Fortress |
+| Gazebo | Ignition Harmonic |
 | Ubuntu | 22.04 |
 | ros2_control | diff_drive_controller |
 | twist_mux | velocity multiplexer |
+| OpenCV | QR + marker detection |
 
 ---
 
 ## 👤 Author
 
-**Sesha Sai Jagadeswar Patnala**
-Robotics and Mechatronics Engineer
+**Sesha Sai Jagadeswar Patnala**  
+Robotics and Mechatronics Engineer  
 https://github.com/robovision2210
