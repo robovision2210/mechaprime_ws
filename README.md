@@ -10,9 +10,13 @@
 
 ---
 
-## 🎥 Demo
+## 🎥 Demos
 
-![MechaPrime Maze Solver Demo](media/mechaprime_demo.gif)
+### 🧠 Autonomous Maze Solver
+![MechaPrime Maze Solver Demo](media/mechaprime_maze_solver.gif)
+
+### 🕹️ Teleoperation
+![MechaPrime Teleop Demo](media/mechaprime_demo.gif)
 
 ---
 
@@ -25,6 +29,10 @@
 | Maze Top View | LiDAR Output | RQT Node Graph |
 |---------------|--------------|----------------|
 | ![maze](media/maze_topview.png) | ![lidar](media/lidar_output.png) | ![rqt](media/rqt_graph.png) |
+
+| Maze Solver Terminal |
+|----------------------|
+| ![terminal](media/maze_solver_terminal.png) |
 
 ---
 
@@ -55,7 +63,7 @@
 
 | Sensor | Type | Topic | Rate |
 |--------|------|--------|------|
-| LiDAR | 360° Ray | `/scan` | 5 Hz |
+| LiDAR | 360° GPU Ray | `/scan` | 5 Hz |
 | IMU | 6-DOF | `/imu/out` | 100 Hz |
 | Camera | RGB 640×480 | `/camera/image_raw` | 10 Hz |
 
@@ -190,16 +198,16 @@ keyboard   (priority 80) ┘
 │   FORWARD   │ ──────────────────────► │   TURNING   │
 │  (0.15 m/s) │                          │ (0.3 rad/s) │
 └─────────────┘ ◄─────────────────────── └─────────────┘
-       │           turn complete (IMU)          
-       │ QR: "stop"                            
-       ▼                                       
-┌─────────────┐                               
-│   STOPPED   │                               
-└─────────────┘                               
+       │           turn complete (IMU)
+       │ QR: "stop"
+       ▼
+┌─────────────┐
+│   STOPPED   │
+└─────────────┘
 ```
 
 **QR Commands:**
-- `left` → Turn left 90° 
+- `left` → Turn left 90°
 - `right` → Turn right 90°
 - `stop` → Stop robot permanently
 
