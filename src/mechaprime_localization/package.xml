@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>mechaprime_bringup</name>
+  <name>mechaprime_localization</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="pssjagadeswar22@gmail.com">jagadeswar</maintainer>
@@ -9,11 +9,14 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>mechaprime_description</depend>
-  <depend>mechaprime_controller</depend>
-  <depend>mechaprime_mapping</depend>
-  <depend>mechaprime_localization</depend>
-  
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>nav2_amcl</exec_depend>
+  <exec_depend>nav2_map_server</exec_depend>
+  <exec_depend>nav2_lifecycle_manager</exec_depend>
+  <exec_depend>tf_transformations</exec_depend>
+  <exec_depend>mechaprime_mapping</exec_depend>
+
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
