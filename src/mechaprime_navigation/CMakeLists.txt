@@ -16,10 +16,12 @@ install(
   DIRECTORY launch config behavior_tree
   DESTINATION share/${PROJECT_NAME}
 )
+
 install(PROGRAMS
   ${PROJECT_NAME}/waypoint_following.py
   DESTINATION lib/${PROJECT_NAME}  
 )
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

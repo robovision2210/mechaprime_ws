@@ -13,6 +13,7 @@
   <depend>mechaprime_controller</depend>
   <depend>mechaprime_mapping</depend>
   <depend>mechaprime_localization</depend>
+  <depend>mechaprime_navigation</depend>
   
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

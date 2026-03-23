@@ -29,6 +29,10 @@ setup(
             'read_camera = mechaprime_scripts.read_camera:main',
             'detect_marker = mechaprime_scripts.detect_marker:main',
             'maze_solver = mechaprime_scripts.maze_solver:main',
+            'obstacle_avoidance = mechaprime_scripts.obstacle_avoidance:main',
+            'auto_docking_undocking = mechaprime_scripts.auto_docking_undocking:main',
+            'docking_with_patrolling = mechaprime_scripts.docking_with_patrolling:main',
+            'auto_docking_with_battery = mechaprime_scripts.auto_docking_with_battery:main',
             ],
     },
 )

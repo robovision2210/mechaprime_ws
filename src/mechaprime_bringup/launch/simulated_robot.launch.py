@@ -68,6 +68,13 @@ def generate_launch_description():
             "global_localization.launch.py"
             ),
         )    
+    navigation = IncludeLaunchDescription(
+            os.path.join(
+                get_package_share_directory("mechaprime_navigation"),
+                "launch",
+                "navigation.launch.py"
+            ),
+        )
     
     rviz = Node(
         package='rviz2', 
@@ -84,5 +91,6 @@ def generate_launch_description():
         joystick,
         rviz,
         #slam,
-        global_localization
+        global_localization,
+        navigation,
 ])
