@@ -15,9 +15,6 @@
 ### 🧠 Autonomous Maze Solver
 ![MechaPrime Maze Solver Demo](media/mechaprime_maze_solver.gif)
 
-### 🚀 Navigation & Docking
-![MechaPrime Navigation & Docking Demo](media/mechaprime_navigation_docking.gif)
-
 ### 🕹️ Teleoperation
 ![MechaPrime Teleop Demo](media/mechaprime_demo.gif)
 
