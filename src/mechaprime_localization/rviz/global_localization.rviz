@@ -49,7 +49,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: <Fixed Frame>
+      Reference Frame: lidar_sensor_link
       Value: true
     - Alpha: 0.699999988079071
       Class: rviz_default_plugins/Map
